@@ -1,0 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 1, rem;
+  font-family: Neuton, sans-serif;
+}
+
+:root {
+  --yellow: #eac50b;
+  --orange: #faa023;
+  --blue: #cbf1f4;
+}
