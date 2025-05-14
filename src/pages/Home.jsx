@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import useToyStore from '../data/toyStore';
 import ToyCard from '../components/ToyCard';
 import '../styles/Home.css';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   const { toys, fetchToys, loading, error } = useToyStore();
@@ -16,7 +17,9 @@ const Home = () => {
       <section className="hero">
         <div className="hero-content">
           <h2 className="hero-title">Play More This Summer!</h2>
-          <button className="shop-now-btn">Shop Now</button>
+          <Link to="/shop">
+            <button className="shop-now-btn">Shop Now</button>
+          </Link>
         </div>
       </section>
 
