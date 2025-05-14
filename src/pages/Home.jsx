@@ -1,28 +1,38 @@
 import React, { useEffect } from 'react';
 import useToyStore from '../data/toyStore';
 import ToyCard from '../components/ToyCard';
+import '../styles/Home.css';
 
 const Home = () => {
-	const { toys, fetchToys, loading, error } = useToyStore();
-  
-	useEffect(() => {
-	  fetchToys();
-	}, [fetchToys]);
-  
-	console.log('Fetched toys:', toys);
-  
-	return (
-	  <div className="home-container">
-		<h1 className="home-title">Our Summer Toys</h1>
-		{loading && <p>Loading toys...</p>}
-		{error && <p className="error">{error}</p>}
-		<div className="toy-grid">
-		  {toys.map(toy => (
-			<ToyCard key={toy.id} toy={toy} />
-		  ))}
-		</div>
-	  </div>
-	);
-  };
-  
-  export default Home;
+  const { toys, fetchToys, loading, error } = useToyStore();
+
+  useEffect(() => {
+    fetchToys();
+  }, [fetchToys]);
+
+  return (
+    <div className="home-container">
+		
+      <section className="hero">
+        <div className="hero-content">
+          <h2 className="hero-title">Play More This Summer!</h2>
+          <button className="shop-now-btn">Shop Now</button>
+        </div>
+      </section>
+
+      <section className="bestsellers">
+        <h2 className="section-title">Bestsellers</h2>
+        {loading && <p>Loading toys...</p>}
+        {error && <p className="error">{error}</p>}
+
+        <div className="toy-grid">
+          {toys.slice(0, 3).map((toy) => (
+            <ToyCard key={toy.id} toy={toy} />
+          ))}
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default Home;
