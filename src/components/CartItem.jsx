@@ -16,7 +16,9 @@ const CartItem = ({ item }) => {
       <img src={item.image} alt={item.name} className="cart-item-img" />
       <div className="cart-item-details">
         <h3>{item.name}</h3>
-        <p>{item.price} kr</p>
+        <p className="toy-description">{item.description}</p>
+        <p className="toy-category">{item.category}</p>
+        <p>{item.price} SEK </p>
         <input
           type="number"
           min="1"

@@ -7,6 +7,8 @@ const ToyCard = ({ toy, addToCart }) => {
 		  alt={toy.name || 'No name available'} className="toy-image"
 		/>
       <h3 className="toy-name">{toy.name}</h3>
+	  <p className="toy-description">{toy.description}</p>
+	  <p className="toy-category">{toy.category}</p>
       <p className="toy-price">{toy.price} SEK</p>
       <button className="add-to-bag-btn" onClick={() => addToCart && addToCart(toy)}>
 		Add To Bag</button>
