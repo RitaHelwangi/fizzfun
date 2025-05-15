@@ -30,7 +30,7 @@ const Home = () => {
         {error && <p className="error">{error}</p>}
 
         <div className="toy-grid">
-          {toys.slice(5, 10).map((toy) => (
+          {toys.slice(5, 9).map((toy) => (
             <ToyCard key={toy.id} toy={toy} addToCart={addToCart} />
           ))}
         </div>

@@ -16,7 +16,7 @@ const Shop = () => {
 
   return (
     <div className="shop">
-      <h2>Shop</h2>
+      <h2 className='section-title'>Shop</h2>
       <div className="toy-grid">
         {toys.map((toy) => (
           <div key={toy.id} className="toy-card">
