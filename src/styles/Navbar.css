@@ -21,12 +21,14 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  align-items: center;
 }
 
 .nav-link {
   text-decoration: none;
   color: #333;
   font-weight: 500;
+  align-items: center;
 }
 
 .nav-link:hover,
@@ -38,6 +40,7 @@
   display: flex;
   align-items: center;
   position: relative;
+  padding: 0;
 }
 .cart-icon {
   width: 34px;

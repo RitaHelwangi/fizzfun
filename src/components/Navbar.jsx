@@ -23,7 +23,9 @@ const Navbar = () => {
         <li>
           <NavLink to="/cart" className="nav-link cart-link">
 		  <img src={CartIcon} alt="Cart" className="cart-icon" />
+		  {totalItems > 0 && (
 		  <span className="cart-count">{totalItems}</span>
+		  )}
 		  </NavLink>
         </li>
 
