@@ -6,6 +6,9 @@ import { createHashRouter, RouterProvider } from 'react-router'
 import Home from './pages/Home.jsx'
 import Shop from './pages/Shop.jsx'
 import Cart from './pages/Cart.jsx'
+import Login from './pages/Login.jsx'
+import Footer from './components/Footer.jsx'
+
 const router = createHashRouter([
 	{
 		path: '/',
@@ -13,7 +16,11 @@ const router = createHashRouter([
 		children: [
 			{index: true, Component: Home},
 			{ path: 'shop', Component: Shop },
-			{ path: 'cart', Component: Cart }
+			{ path: 'cart', Component: Cart },
+			{ path: 'login', Component: Login },
+			{ path: 'admin', Component: Footer },
+
+
 
 		]
 	}
