@@ -3,9 +3,10 @@ import useToyStore from '../data/toyStore';
 import ToyCard from '../components/ToyCard';
 import '../styles/Home.css';
 import { Link } from 'react-router-dom';
-
+import useCartStore from '../data/cartStore';
 const Home = () => {
   const { toys, fetchToys, loading, error } = useToyStore();
+  const { addToCart } = useCartStore();
 
   useEffect(() => {
     fetchToys();
@@ -30,7 +31,7 @@ const Home = () => {
 
         <div className="toy-grid">
           {toys.slice(0, 3).map((toy) => (
-            <ToyCard key={toy.id} toy={toy} />
+            <ToyCard key={toy.id} toy={toy} addToCart={addToCart} />
           ))}
         </div>
       </section>
