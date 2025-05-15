@@ -3,6 +3,7 @@ import { NavLink, Link } from 'react-router-dom';
 import '../styles/Navbar.css';
 import FizzFunLogo from '../assets/FizzFunSVG.svg';
 import useCartStore from '../data/cartStore';
+import CartIcon from '../assets/Cart.svg'; 
 
 const Navbar = () => {
 	const { cart } = useCartStore();
@@ -20,7 +21,10 @@ const Navbar = () => {
           <NavLink to="/shop" className="nav-link">Shop</NavLink>
         </li>
         <li>
-          <NavLink to="/cart" className="nav-link">Cart ({totalItems})</NavLink>
+          <NavLink to="/cart" className="nav-link cart-link">
+		  <img src={CartIcon} alt="Cart" className="cart-icon" />
+		  <span className="cart-count">{totalItems}</span>
+		  </NavLink>
         </li>
 
       </ul>
