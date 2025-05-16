@@ -9,9 +9,7 @@ const productSchema = Joi.object({
     "string.empty": "Description is required",
     "string.min": "Description must be at least 5 characters",
   }),
-  category: Joi.string().min(2).max(30).required().messages({
-    "string.empty": "Category is required",
-  }),
+
   price: Joi.number().positive().required().messages({
     "number.base": "Price must be a number",
     "number.positive": "Price must be positive",

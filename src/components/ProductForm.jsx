@@ -25,17 +25,20 @@ const ProductForm = ({ onSubmit, onCancel, initialProduct }) => {
   };
 
   const validate = () => {
-    const { error } = productSchema.validate(
-      { ...product, price: Number(product.price) },
-      { abortEarly: false }
-    );
-    if (!error) return {};
-    const errObj = {};
-    error.details.forEach((err) => {
-      errObj[err.path[0]] = err.message;
-    });
-    return errObj;
-  };
+    const toValidate = {
+		name: product.name,
+		description: product.description,
+		price: Number(product.price),
+		image: product.image,
+	  };
+	  const { error } = productSchema.validate(toValidate, { abortEarly: false });
+	  if (!error) return {};
+	  const errObj = {};
+	  error.details.forEach((err) => {
+		errObj[err.path[0]] = err.message;
+	  });
+	  return errObj;
+	};
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -45,8 +48,13 @@ const ProductForm = ({ onSubmit, onCancel, initialProduct }) => {
       return;
     }
     setErrors({});
-    onSubmit({ ...product, price: Number(product.price) });
-    setProduct(emptyProduct);
+    const submitProduct = {
+		...product,
+		price: Number(product.price),
+	  };
+
+	  onSubmit(submitProduct);
+	  if (!initialProduct) setProduct(emptyProduct);
   };
 
   return (
