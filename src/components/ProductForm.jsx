@@ -90,7 +90,7 @@ const ProductForm = ({ onSubmit, onCancel, initialProduct }) => {
         {errors.image && <span className="error">{errors.image}</span>}
       </div>
       <div className="form-actions">
-        <button type="submit">{initialProduct ? "Update" : "Add"} Product</button>
+        <button type="submit" className="update-product-btn">{initialProduct ? "Update" : "Add"} Product</button>
         {onCancel && (
           <button type="button" onClick={onCancel} className="cancel-btn">
             Cancel
