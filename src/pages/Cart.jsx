@@ -3,7 +3,7 @@ import useCartStore from '../data/cartStore';
 import CartItem from '../components/CartItem';
 
 const Cart = () => {
-  const { cart, clearCart } = useCartStore();
+  const { cart, clearCart, handleCheckout } = useCartStore();
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   return (
@@ -18,6 +18,7 @@ const Cart = () => {
           ))}
           <h3>Total: {total} kr</h3>
           <button onClick={clearCart} className="clear-cart-btn">Clear Cart</button>
+		  <button onClick={handleCheckout} className="checkout-btn">Checkout</button>
         </>
       )}
     </div>
