@@ -19,6 +19,7 @@ const Admin = () => {
   const [showForm, setShowForm] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [deleteId, setDeleteId] = useState(null);
+  const [popup, setPopup] = useState("");
 
   useEffect(() => {
     fetchToys();
@@ -27,11 +28,15 @@ const Admin = () => {
   const handleAdd = async (product) => {
     await addToy(product);
     setShowForm(false);
+	setPopup("Toy is added!");
+    setTimeout(() => setPopup(""), 3000);
   };
 
   const handleEdit = async (product) => {
     await updateToyInStore(product.id, product);
     setEditing(null);
+	setPopup("Toy is updated!");
+    setTimeout(() => setPopup(""), 3000);
   };
 
   const handleDeleteClick = (id) => {
@@ -48,6 +53,7 @@ const Admin = () => {
   return (
     <div className="admin-page">
       <h2>Admin Product Management</h2>
+	  {popup && <div className="popup">{popup}</div>}
       <ConfirmModal
         open={modalOpen}
         onClose={() => setModalOpen(false)}

@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Joi from "joi";
 import productSchema from "../validation/productSchema";
+import "../styles/Admin.css";
 
 const emptyProduct = {
   name: "",
@@ -13,11 +14,13 @@ const emptyProduct = {
 const ProductForm = ({ onSubmit, onCancel, initialProduct }) => {
   const [product, setProduct] = useState(initialProduct || emptyProduct);
   const [errors, setErrors] = useState({});
+  const formRef = useRef(null);
 
   useEffect(() => {
-    if (initialProduct) setProduct(initialProduct);
-    else setProduct(emptyProduct);
-  }, [initialProduct]);
+    if (formRef.current) {
+		formRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+	  }
+	}, [initialProduct]); 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -58,7 +61,7 @@ const ProductForm = ({ onSubmit, onCancel, initialProduct }) => {
   };
 
   return (
-    <form className="product-form" onSubmit={handleSubmit}>
+    <form className="product-form" onSubmit={handleSubmit} ref={formRef}>
       <div>
         <label>Name</label>
         <input name="name" value={product.name} onChange={handleChange} />
