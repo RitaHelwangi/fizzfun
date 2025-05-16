@@ -23,7 +23,7 @@ const Shop = () => {
             <img src={toy.image} alt={toy.name} className="toy-img" />
             <h3>{toy.name}</h3>
 			<p className="toy-description">{toy.description}</p>
-			<p className="toy-category">{toy.category}</p>
+			
             <p>{toy.price} SEK </p>
             <button onClick={() => addToCart(toy)}>Add to Cart</button>
           </div>

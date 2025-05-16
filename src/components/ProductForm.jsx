@@ -5,7 +5,7 @@ import productSchema from "../validation/productSchema";
 const emptyProduct = {
   name: "",
   description: "",
-  category: "",
+ 
   price: "",
   image: "",
 };
@@ -61,11 +61,7 @@ const ProductForm = ({ onSubmit, onCancel, initialProduct }) => {
         <input name="description" value={product.description} onChange={handleChange} />
         {errors.description && <span className="error">{errors.description}</span>}
       </div>
-      <div>
-        <label>Category</label>
-        <input name="category" value={product.category} onChange={handleChange} />
-        {errors.category && <span className="error">{errors.category}</span>}
-      </div>
+      
       <div>
         <label>Price</label>
         <input

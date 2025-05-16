@@ -81,9 +81,7 @@ const Admin = () => {
             <div>
               <h4>{product.name}</h4>
               <p>{product.description}</p>
-              <p>
-                <b>Category:</b> {product.category}
-              </p>
+
               <p>
                 <b>Price:</b> {product.price} SEK
               </p>
