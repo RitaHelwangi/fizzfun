@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import useAdminStore from "../data/adminStore";
+
 
 const LoginForm = () => {
   const [username, setUsername] = useState("");
@@ -7,6 +9,7 @@ const LoginForm = () => {
   const [usernameError, setUsernameError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const { toggleLogIn } = useAdminStore();
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -20,6 +23,7 @@ const LoginForm = () => {
     }
 
     toggleLogIn();
+	navigate("/admin");
 
   };
 

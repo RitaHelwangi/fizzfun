@@ -8,6 +8,7 @@ import Shop from './pages/Shop.jsx'
 import Cart from './pages/Cart.jsx'
 import Login from './pages/Login.jsx'
 import Footer from './components/Footer.jsx'
+import Admin from './pages/Admin.jsx'
 
 const router = createHashRouter([
 	{
@@ -18,7 +19,8 @@ const router = createHashRouter([
 			{ path: 'shop', Component: Shop },
 			{ path: 'cart', Component: Cart },
 			{ path: 'login', Component: Login },
-			{ path: 'admin', Component: Footer },
+			{ path: 'admin', Component: Admin },
+			{ path: 'footer', Component: Footer },
 
 
 
